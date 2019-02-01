@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="assets/vendor/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/vendor/simplemde/simplemde.css">
+	<script src="assets/vendor/simplemde/simplemde.js"></script>
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<style>
+		.CodeMirror{
+			/* background-color: rgb(29,32,55); */
+			color: #000;
+		}
+		.editor-preview-side{
+			background-color: rgb(29,32,55);
+			color: #fff;
+		}
+		.button{
+			position: fixed;
+			top: 2rem;
+			right: 2rem;
+			z-index: 99999;
+		}
+		.button button{
+			font-size: 1.5rem;
+			color: #000;
+		}
+		.button a,
+		.button a:link,
+		.button a:visited,
+		.button a:hover,
+		.button a:active{
+			text-decoration: none;
+			color: #000;
+		}
+	</style>
+</head>
+<body>
+	<textarea name="markdown" id="markdown" cols="30" rows="10"></textarea>
+	<div class="button">
+		<button class="save">Save</button>
+		<button class="back"><a href="/admin/index">Back</a></button>
+	</div>
+	<script src="assets/static/js/admin-edit.js"></script>
+</body>
+</html>

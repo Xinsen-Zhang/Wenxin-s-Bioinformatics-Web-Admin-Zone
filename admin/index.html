@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="assets/static/css/media-query.css">
+	<link rel="stylesheet" href="assets/static/css/admin-index.css">
+	<link rel="stylesheet" href="assets/vendor/animate/animate.css">
+	<link rel="stylesheet" href="assets/static/css/normalize.css">
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<title>Admin Dashboard</title>
+</head>
+<body>
+	<div class="left">
+		<div class="avatar">
+			<img src="assets/static/avatar/avatar.gif" alt="">
+		</div>
+		<div class="message"></div>
+		<div class="menu-control">
+			<div class="dashboard">Dashboard</div>
+			<ul class="menu">Home</ul>
+			<ul class="menu" data-field="Lecture">Lecture</ul>
+			<ul class="menu" data-field="Analysis">Analysis</ul>
+		</div>
+	</div>
+	<div class="top">
+		<form action="/admin/login" method="get" class="form">
+			<input type="text" value="true" name="logout">
+			<input type="submit" value="" class="logout">
+		</form>
+		<div class="button">Log out</div>
+		<!-- <div class="search"></div> -->
+		<div class="title-list-container">
+			<div class="title-list">
+				<ul class="tabel-content">
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script src="assets/static/js/admin-index.js"></script>
+</body>
+</html>

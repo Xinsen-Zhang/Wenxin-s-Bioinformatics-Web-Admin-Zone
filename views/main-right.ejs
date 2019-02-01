@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="css/main-right.css">
+<link rel="stylesheet" href="animate/animate.css">
+<div class="main-right animated shake">
+    <div class="login">
+        <!--<div class="avatar-top"></div>-->
+        <div class="avatar"></div>
+        <div class="message">Hi, visitor~</div>
+        <div class="form">
+            <!-- <% if(!locals.success){%> -->
+                <form action="/login" method="post" autocomplete="off">
+                    <div class="field">
+                        <label for="username">Username&nbsp;&nbsp;</label>
+                        <input type="text" id="username" placeholder="Input your username" name="username">
+                    </div>
+                    <div class="field">
+                        <label for="password">Password&nbsp;&nbsp;</label>
+                        <input type="password" id="password" placeholder="Password here" name="password">
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Login" class="submit">
+                        <input type="button" value="Register" class="register">
+                    </div>
+                </form>
+            <!-- <%}else{%> -->
+                <!-- <form action="/logout" method="post" style="position: relative;">
+                    <div class="button" style="position: absolute;bottom: 0">
+                        <input type="submit" value="logout">
+                    </div>
+                </form> -->
+            <!-- <%}%> -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/main-right.js"></script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="assets/static/css/media-query.css">
+
+	<link rel="stylesheet" href="assets/static/css/admin-login.css">
+	<link rel="stylesheet" href="assets/vendor/animate/animate.css">
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<!-- admin-login css 样式 -->
+</head>
+<body>
+	<div class="login-box animated" id="login-box">
+		<div class="avatar">
+			<img src="assets/static/avatar/default.jpeg" alt="User's avatar">
+		</div>
+		<div class="message">Hi, cat~</div>
+		<div class="form">
+			<form method="post" action="/admin/login">
+				<div class="input">
+					<label for="username">Username</label>
+					<input type="text" id="username" name="username" placeholder="Username here">
+				</div>
+				<div class="input">
+					<label for="username">Password</label>
+					<input type="password" id="password" name="password" placeholder="Password here">
+				</div>
+				<div class="button">
+					<input type="submit" id="login">
+					<div class="login">Login</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<script src="assets/static/js/admin-login.js"></script>
+</body>
+</html>

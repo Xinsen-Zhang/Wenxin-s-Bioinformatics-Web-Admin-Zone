@@ -1,0 +1,35 @@
+<% include head%>
+<link rel="stylesheet" href="css/home-flex.css">
+<div class="main">
+    <div class="main-left left-bar">
+        <ul class="links">
+            <li>Links</li>
+            <li><a href="#">浙大校网</a></li>
+            <li><a href="#">陈铭的实验室</a></li>
+            <li><a href="#">生物院网站</a></li>
+            <li><a href="#">NCBI</a></li>
+            <li><a href="#">UniprotKB</a></li>
+        </ul>
+    </div>
+    <div class="main-middle slide-anchor" data-current="1">
+        <div class="image">
+            <div class="image-slide first" data-current="first"><img src="images/1.jpg" alt=""></div>
+            <div class="image-slide second" data-current="second"><img src="images/2.jpg" alt=""></div>
+            <div class="image-slide third" data-current="third"><img src="images/3.jpg" alt=""></div>
+            <div class="image-slide fourth" data-current="fourth"><img src="images/4.jpg" alt=""></div>
+            <div class="image-slide fifth" data-current="fifth"><img src="images/5.jpg" alt=""></div>
+        </div>
+        <div class="dockers">
+            <div class="docker current"></div>
+            <div class="docker"></div>
+            <div class="docker"></div>
+            <div class="docker"></div>
+            <div class="docker"></div>
+        </div>
+        <div class="prev iconfont icon-next"></div>
+        <div class="next iconfont icon-next"></div>
+    </div>
+    <% include main-right %>
+</div>
+<script src="js/home-flex.js"></script>
+<%include foot%>

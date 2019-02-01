@@ -1,0 +1,98 @@
+├── api			api 文件
+│   ├── city.js 				天气情况 api 文件
+│   └── lectures.js 			lecture 内容 api 文件 (从数据库中取数据)
+├── app.js  					api的 node 文件.由 nodejs 运行,后端 api 文件
+├── assets						静态文件和插件文件夹
+│   ├── static 					静态文件
+│   │   ├── audio3 				音频文件
+│   │   │   └── 平安如夜.m4a 		背景音乐
+│   │   ├── css 				静态 css 文件夹
+│   │   │   ├── analysis-flex.css
+│   │   │   ├── foot.css
+│   │   │   ├── head.css
+│   │   │   ├── home.css
+│   │   │   ├── home-flex.css
+│   │   │   ├── iconfont.css
+│   │   │   ├── index.css
+│   │   │   ├── lecture.css
+│   │   │   ├── lecture-flex.css
+│   │   │   ├── main-right.css
+│   │   │   ├── media-query.css
+│   │   │   ├── normalize.css
+│   │   │   ├── profile-flex.css
+│   │   │   └── reflection-flex.css
+│   │   ├── images 				静态图片文件夹
+│   │   │   ├── 1.jpg
+│   │   │   ├── 2.jpg
+│   │   │   ├── 3.jpg
+│   │   │   ├── 4.jpg
+│   │   │   ├── 5.jpg
+│   │   │   ├── avatar.gif
+│   │   │   └── DNA.gif
+│   │   ├── js  				静态 JS 文件夹
+│   │   │   ├── head.js
+│   │   │   ├── home-flex.js
+│   │   │   ├── home.js
+│   │   │   ├── index.bak.js
+│   │   │   ├── index.js
+│   │   │   ├── jquery.min.js
+│   │   │   ├── lecture-flex.js
+│   │   │   ├── lecture.js
+│   │   │   └── main-right.js
+│   │   └── video  			静态视频文件.
+│   │       └── dna.mp4 	开始动画
+│   └── vendor 				插件保存文件
+│       ├── animate 		animate 插件
+│       │   └── animate.css
+│       └── nprogress 		progress插件.用于制作页面 ajax 加载的时候的进度条
+│           ├── nprogress.css
+│           └── nprogress.js
+├
+├── flex 					弹性布局的测试页面
+│   └── home.html 			home 页的弹性测试页面
+├── iconfont 				矢量字体图标文件
+│   ├── download.zip
+│   └── font_993823_wqhuoee419q
+│       ├── demo.css
+│       ├── demo_fontclass.html
+│       ├── demo_symbol.html
+│       ├── demo_unicode.html
+│       ├── iconfont.css
+│       ├── iconfont.eot
+│       ├── iconfont.js
+│       ├── iconfont.svg
+│       ├── iconfont.ttf
+│       └── iconfont.woff
+├── index.html  		静态主页初稿.测试文件.1.0版本
+├── middleware			后台系统的中间件文件夹
+│   ├── lectures.js 	lectures 中间件.负责 lecture 页面的功能实现
+│   ├── login.js 		 login 中间件.负责 登录功能
+│   └── logout.js 		logout 中间件. 负责登出功能
+├── models 				抽象模型文件夹. 后台负责页面的各功能的基础
+│   ├── MD5.js 			MD5加密模型.用作密码的加密
+│   └── mysql.js 		mysql 数据库文件.用作数据库的操作
+├
+├── package.json 		后台系统依赖package 的描述
+├── README.md 			项目的文档
+├── routers 			路由文件夹.负责各业面上的http 请求处理;
+│   ├── analysis.js 	负责 analysis 页面的请求处理
+│   ├── home.js 		负责 home 页面的请求处理
+│   ├── index.js 		负责 index 页面的请求处理
+│   ├── lecture.js 		负责 lecture 页面的请求处理
+│   ├── profile.js 		负责 profile 页面的请求处理
+│   └── reflection.js 	负责 reflection 页面的请求处理
+├
+├── server.js 			服务器端后台整合文件.基于nodejs 运行
+├		
+├
+├── TODO				功能简单开发记录
+└── views 				视图渲染文件夹
+    ├── analysis.ejs
+    ├── foot.ejs
+    ├── head.ejs
+    ├── home.ejs
+    ├── index.ejs
+    ├── lecture.ejs
+    ├── main-right.ejs
+    ├── profile.ejs
+    └── reflection.ejs

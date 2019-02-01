@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wenxin's Bioinformatics Website</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="./assets/static/css/normalize.css">
+    <link rel="stylesheet" href="./assets/static/css/iconfont.css">
+    <style>
+        body{
+            background-color: #dfdfdf;
+            /*height: 10000px;*/
+            /*width: 1442px;*/
+        }
+
+        a,
+        a:link,
+        a:visited,
+        a:hover,
+        a:active{
+            color: #000;
+            text-decoration: none;
+        }
+
+        .top{
+            width: 100%;
+            height: 160px;
+            border: 1px solid #000;
+            position: absolute;
+            top: 0px;
+            font-size: 30px;
+            color: #000;
+            background-color: #1f5182;
+        }
+
+        .top .web-title{
+            width: 500px;
+            text-align: center;
+            position: absolute;
+            top: 75px;
+            margin-bottom: 10px;
+            color: #fff;
+            font-size: 50px;
+            line-height: 50px;
+        }
+
+        .top .info{
+            width: 100%;
+            position: absolute;
+            font-size: 20px;
+            height: 40px;
+            background-color: #a5d9ee;
+            color: #1f5182;
+            line-height: 40px;
+        }
+
+        .top .audio{
+            display: none;
+        }
+
+        .info span{
+            float: right;
+            margin-right: 30px;
+        }
+
+        .top .search{
+            position: absolute;
+            right: 50px;
+            bottom: 60px;
+            outline: none;
+            width: 240px;
+            font-size: 20px;
+            line-height: 30px;
+            height: 30px;
+        }
+
+        .top #control{
+            cursor: pointer;
+            float: right;
+            font-size: 20px;
+            line-height: 40px;
+            font-weight: 900;
+            margin-right: 30px;
+        }
+
+        .search #search{
+            position: absolute;
+            width: 250px;
+            left: 0;
+            bottom: 1px;
+        }
+
+        .search span{
+            position: absolute;
+            font-size: 40px;
+            right: -50px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .top-menu{
+            width: 1000px;
+            position: absolute;
+            border-top: 0.5px solid #000;
+            top: 110px;
+            z-index: 9999;
+            height: 50px;
+            background-color: #1f5182;
+            right: -2px;
+        }
+
+        .clearfix::after{
+            content: ".";
+            display: block;
+            height: 0px;
+            clear: both;
+            visibility: hidden;
+            font-size: 0;
+        }
+
+        .menu{
+            float: left;
+            line-height: 50px;
+            text-align: center;
+            width: 200px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .menu-index{
+            opacity: 0;
+        }
+
+        .menu .container{
+            border-left: 1px solid #000;
+            border-bottom: 1px solid #000;
+            height: 50px;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        .menu .container a{
+            color: #fff;
+        }
+
+        .container:last-child{
+            border-right: 1px solid #000;
+        }
+
+        .hidden{
+            display: none;
+        }
+
+        .submenu{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #dbedfb;
+            color: #255488;
+            margin-top: 1px;
+        }
+
+        .sub-item{
+            width: 198px;
+            font-size: 14px;
+            margin-top: -1px;
+        }
+
+        .home,
+        .lecture,
+        .analysis,
+        .reflection,
+        .profile{
+            color: #fff;
+            width: 1440px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .back-top{
+            position: fixed;
+            left: 50px;
+            bottom: 50px;
+            z-index: 9999;
+        }
+        .back-top a{
+            font-size: 50px;
+        }
+
+        .split-bar{
+            height: 153px;
+            width: 100%;
+            background-color: transparent;
+        }
+
+        /*home页面的布局*/
+        /*home页面的图片滑窗*/
+
+        .home{
+            position: static;
+            width: 1000px;
+        }
+
+        .home-slide{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+
+        .image{
+            width: 400px;
+            height: 300px;
+            overflow: hidden;
+            position: absolute;
+            left: 200px;
+            bottom: 50px;
+            box-shadow: rgba(0,0,0,0.3) 1px 1px 2px;
+            transition: all 1s linear;
+        }
+        .image img{
+            width: 400px;
+            height: 300px;
+        }
+
+        .first{
+            transform: translate(0,0) scale(1.0);
+            z-index: 3;
+        }
+
+        .second{
+            transform: translate(200px , -120px) scale(0.80);
+            z-index: 2;
+            filter: blur(5px);
+        }
+
+        .third{
+            transform: translate(150px, -200px) scale(0.7);
+            z-index: 1;
+            filter: blur(10px);
+        }
+
+        .fourth{
+            transform: translate(-150px, -200px) scale(0.7);
+            z-index: 1;
+            filter: blur(10px);
+        }
+
+         .fifth{
+            transform: translate(-200px , -120px) scale(0.80);
+             z-index: 2;
+             filter: blur(5px);
+         }
+
+        .image-next,
+        .image-prev{
+            position: absolute;
+            font-size: 30px;
+            left: 0px;
+            top: 50%;
+            /*transform: translateY(-50%);*/
+            transform: rotate(180deg) translateY(-50%);
+            cursor: pointer;
+            text-shadow: rgba(0,0,0,0.3) 1px 1px 1px ;
+            z-index: 9999;
+        }
+        .image-prev{
+            left: auto;
+            right: 0px;
+            transform: translateY(-50%);
+        }
+
+        .home-slide:hover .image-switch{
+            display: inline;
+        }
+
+        .docker{
+            position: absolute;
+            list-style: none;
+            z-index: 4;
+            bottom: 0px;
+            left: 50%;
+            transform: translate(-50%,0);
+        }
+
+        .docker li{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            margin: 2px 5px;
+            transition: all 1.5s linear;
+            cursor: pointer;
+        }
+        .docker .current{
+            box-shadow: rgba(0,0,0,0.5) 5px 5px 20px;
+        }
+
+        /*左边的友情链接的布局*/
+
+        .left-bar{
+            position: absolute;
+            width: 200px;
+            left: 50px;
+            top: 300px;
+        }
+
+        .left-bar .links{
+            list-style: none;
+            font-size: 20px;
+            line-height: 40px;
+            color: #000;
+        }
+        .links li{
+            height: 40px;
+        }
+
+        .links a:hover{
+            text-shadow: rgba(0,0,0,0.3) 2px 2px 2px;
+            box-shadow: rgba(0,0,0,0.5) 1px 1px 2px;
+        }
+
+        .right-bar{
+            width: 300px;
+            height: 500px;
+            border: 1px solid rgba(0,0,0,0.7);
+            box-shadow: rgba(0,0,0,0.2) 3px 3px 10px;
+            position: absolute;
+            right: 5px;
+            top: 250px;
+            border-radius: 10px;
+        }
+        .login{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            color: #fff;
+            background-color: #1f5182;
+            border-radius: 10px;
+        }
+        .avatar{
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            left: 75px;
+            top: 50px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            display: block;
+            overflow: hidden;
+        }
+
+        .avatar img{
+            width: 150px;
+            height: 150px;
+        }
+
+        .message{
+            height: 30px;
+            width: 100px;
+            position: relative;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 30px;
+            font-size: 30px;
+            top: 230px;
+            text-shadow: rgba(0,0,0,0.3) 2px 2px 2px;
+        }
+
+        .form{
+            height: 200px;
+            position: absolute;
+            bottom: 0px;
+        }
+
+        .item-name, .item-content{
+            padding-top: 30px;
+            float: left;
+            color: #fff;
+        }
+        
+        .item-name{
+            width: 80px;
+            text-align: center;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .button input{
+            float: left;
+            margin-left: 60px;
+            margin-top: 30px;
+            border-radius: 5px;
+            /*background-color: #7cddfd;*/
+            color: #000;
+        }
+
+        .index{
+            position: absolute;
+            width: 350px;
+            left: 10px;
+            top: 0px;
+        }
+
+        .index .title{
+            width: 200px;
+            font-size: 40px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: #000;
+            margin: 0 auto 30px;
+        }
+
+        .content-list{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 25px;
+        }
+
+        .content-list li{
+            padding-left: 20px;
+            height: 40px;
+            line-height: 40px;
+            padding-bottom: 20px;
+        }
+
+        .content-list li:hover{
+            box-shadow: rgba(0,0,0,0.3) 2px 2px 2px;
+        }
+
+        .index a:hover{
+            text-shadow: rgba(0,0,0,0.3) 2px 2px 2px;
+        }
+
+        .content{
+            margin-top: 100px;
+            width: 1000px;
+            position: relative;
+            left: 400px;
+        }
+
+        .outer{
+            border: 1px  solid #000;
+            box-shadow: rgba(0,0,0,0.3) 2px 2px 20px 1px;
+        }
+
+        .content-box{
+            width: 700px;
+            margin: 50px auto 0;
+            text-align: center;
+        }
+
+        .content-box .title{
+            cursor: pointer;
+            display: block;
+            font-size: 40px;
+            line-height: 50px;
+            height: 50px;
+            color: #000;
+            margin-bottom: 30px;
+        }
+
+        .content-title .title{
+            border-bottom: 2px solid rgba(0,0,0,0.2);
+        }
+
+        .content-box .title:hover{
+            text-shadow: 5px 5px rgba(0,0,0,0.3);
+        }
+
+        .detail-content{
+            margin-top: 10px;
+            opacity: 0;
+        }
+
+        .content-title .detail{
+            font-size: 20px;
+            text-align: left;
+            text-indent: 2em;
+            color: #000000;
+            text-decoration: underline;
+        }
+
+
+
+    </style>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+<div class="lecture" id="lecture">
+    <div class="index">
+        <div class="title">Content</div>
+        <ul class="content-list">
+            <li><a href="#week1">Week 1 Web Design</a></li>
+            <li><a href="#week2">Week 2 Introduction</a></li>
+            <li><a href="#week3">Week 3 Databaase & Tools</a></li>
+            <li><a href="#week4">Week 4 Alignment</a></li>
+            <li><a href="#week5">Week 5 Protemics</a></li>
+            <li><a href="#week6">Week 6 to be continued</a></li>
+            <li><a href="#week7">Week 7 to be continued</a></li>
+            <li><a href="#week8">Week 8 to be continued</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="outer">
+            <div class="content-box">
+                <div class="content-title" id="week1">
+                    <span class="title">Week 1 Web Design</span>
+                    <div class="detail-content hidden">
+                        <div class="detail" id="week-1">
+                            Hello Kitty
+                        </div>
+                    </div>
+                </div>
+                <div class="content-title" id="week2">
+                    <span class="title">Week 2 Introduction</span>
+                    <div class="detail-content hidden">
+                        <div class="detail" id="week-2">
+                            Hello Kitty
+                        </div>
+                    </div>
+                </div>
+                <div class="content-title" id="week3">
+                    <span class="title">Week 3 Databaase & Tools</span>
+                    <div class="detail-content hidden">
+                        <div class="detail" id="week-3">
+                            Hello Kitty
+                        </div>
+                    </div>
+                </div>
+                <div class="content-title" id="week4">
+                    <span class="title">Week 4 Alignment</span>
+                    <div class="detail-content hidden">
+                        <div class="detail" id="week-4">
+                            Hello Kitty
+                        </div>
+                    </div>
+                </div>
+                <div class="content-title" id="week5">
+                    <span class="title">Week 5 Protemics</span>
+                    <div class="detail-content hidden">
+                        <div class="detail" id="week-5">
+                            Hello Kitty
+                        </div>
+                    </div>
+                </div>
+                <div class="content-title" id="week6">
+                    <span class="title">Week 6 to be continued</span>
+                    <div class="detail-content hidden">
+                        <div class="detail" id="week-6">
+                            Hello Kitty
+                        </div>
+                    </div>
+                </div>
+                <div class="content-title" id="week7">
+                    <span class="title">Week 7 to be continued</span>
+                    <div class="detail-content hidden">
+                        <div class="detail" id="week-7">
+                            Hello Kitty
+                        </div>
+                    </div>
+                </div>
+                <div class="content-title" id="week8">
+                    <span class="title">week 8 to be continued</span>
+                    <div class="detail-content hidden">
+                        <div class="detail" id="week-8">
+                            Hello Kitty
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="analysis" id="analysis">内容保留</div>
+<div class="reflection" id="relection">内容保留</div>
+<div class="profile" id="profile">内容保留</div>
+<<<<<<< HEAD
+<div class="footer">
+    <div class="footer-main">
+        <span class="address">Zhejiang University Zijingang Campus, Zhejiang, China</span>
+        <span class="contact"><a href="#">Contact Me</a></span>
+    </div>
+    <div class="copyright">
+        <span class="balabala">&copy; 2019 WENXIN XU ALL rights reserved.</span>
+    </div>
+</div>
+<script src="js/index.js"></script>
+=======
+
+<script>
+        var container = null;
+        $(function(){
+            var $audio = $(".audio audio");
+            var $control = $("#control");
+            var $info = $(".info");
+            var $search = $(".search input");
+            var $menu = $('.menu');
+            var $topMenu = $(".top-menu");
+            var $menu_index = $('.menu-index');
+            var $expansion = $(".expansion");
+            var $subitem = $(".sub-item");
+            var $prevImage = $(".image-prev");
+            var $nextImage = $(".image-next");
+            var $homeImage = $(".home-slide .image");
+            var $container = $(".container");
+            var $homeSlide = $(".home-slide");
+            var $imageList = $(".docker li");
+            var $button = $(".button");
+            var $contentTitle = $(".content-title");
+
+
+            var color_hash = {
+                index_1:"#f00",
+                index_2:"#FFE800",
+                index_3: "#00ff3d",
+                index_4: "#0008ff",
+                index_5: "#ff8600"
+            };
+            var image_hash = {
+                first:{
+                    next: "fifth",
+                    prev: "second"
+                },
+                second:{
+                    next: "first",
+                    prev: "third"
+                },
+                third:{
+                    next: "second",
+                    prev: "fourth"
+                },
+                fourth:{
+                    next: "third",
+                    prev: "fifth"
+                },
+                fifth:{
+                    next: "fourth",
+                    prev: "first"
+                }
+            };
+            var index_hash = {
+                first: 1,
+                second: 2,
+                third: 3,
+                fourth: 4,
+                fifth: 5
+            };
+            var height = 0;
+
+            // 格式化
+            $topMenu.css("marginLeft",document.body.offsetWidth - $topMenu[0].offsetWidth + "px");
+            //处理音乐播放的业务逻辑
+            $audio[0].paused?$control[0].classList.add("icon-jingyin"):$control[0].classList.add("icon-yinpinaudio47");
+            $control.on("click",()=>{
+                switch_control();
+                $audio[0].paused?$audio[0].play():$audio[0].pause();
+            })
+
+            function switch_control(){
+                $control[0].classList.toggle("icon-jingyin");
+                $control[0].classList.toggle("icon-yinpinaudio47");
+            }
+
+            //使用 jsonp 进行跨域的数据传输.处理天气等业务逻辑
+            function weather_jsonp(){
+                $.getJSON("http://23.106.135.251/weather?callback=?",function(data){
+                    $info.find(".date").text(data.date);
+                    $info.find(".weather").text(data.weather);
+                });
+            }
+            weather_jsonp();
+            // 搜索栏的业务逻辑
+            $search.on("focus",()=>{
+                $search.prop("placeholder","");
+            }).on("blur",()=> {
+                $search.prop("placeholder","请输入搜索内容");
+            });
+
+            // 主菜单栏业务
+            $menu.each(function(index, item){
+                var color = color_hash["index_" + (index + 1)];
+                var $item = $(item);
+                $item.on("mouseleave",function(){
+                    $menu_index.eq(index).css({color:"#fff"});
+                    $menu_index.eq(index).css({
+                        opacity:0,
+                        transition:"opacity 0.8s linear"
+                    });
+                    var element = $expansion.eq(index)[0];
+                    element.classList.add("icon-zhankai");
+                    element.classList.remove("icon-zhankai2");
+                    $item.find(".submenu").hide(600);
+                });
+                $container.eq(index).on("mouseover",function(){
+                    $menu_index.eq(index).css({color});
+                    $menu_index.eq(index).css({
+                        opacity:1,
+                        transition:"opacity 0.8s linear"
+                    });
+                    var element = $expansion.eq(index)[0];
+                    element.classList.add("icon-zhankai2");
+                    element.classList.remove("icon-zhankai1");
+                    $item.find(".submenu").show(600);
+                    var $this = $(this);
+                    $this.css({boxShadow:"rgba(0,0,0,0.3) 1px 1px 1px 1px"});
+                    $this.css({textShadow:"rgba(0,0,0,0.3) 3px 1px 1px"});
+                }).on("mouseleave",function(){
+                    var $this = $(this);
+                    $this.css({boxShadow:"none"});
+                    $this.css({textShadow:"none"});
+                })
+            });
+            // 子菜单栏业务逻辑
+            $subitem.each((index, item) =>{
+                var $item = $(item);
+                $item.on("mouseover",function(){
+                    var $this = $(this);
+                    $this.css({boxShadow:"rgba(0,0,0,0.3) 1px 1px 1px 1px"});
+                    $this.css({textShadow:"rgba(0,0,0,0.3) 3px 1px 1px"});
+                    $this.parent().parent().find(".container").css(
+                        {textShadow:"rgba(0,0,0,0.3) 3px 1px 1px"}
+                );
+                }).on("mouseleave",function(){
+                    var $this = $(this);
+                    $this.css({boxShadow:"none"});
+                    $this.css({textShadow:"none"});
+                    $this.parent().parent().find(".container").css(
+                        {textShadow:"none"}
+                    );
+                })
+            });
+
+            // Home的业务逻辑
+            // 图片滑窗
+            // 下一张图片
+            $nextImage.on("click",function(){
+                var now_ =  $homeSlide[0].dataset.current;
+                var prev_ = image_hash[now_]["prev"];
+                $homeSlide[0].dataset.current = prev_;
+                $homeImage.each((index,item) =>{
+                    var current = item.dataset.current;
+                    var next = image_hash[current]["next"];
+                    item.classList.replace(current,next);
+                    item.dataset.current = next;
+                });
+                var current = $homeSlide[0].dataset.current;
+                var prev = image_hash[current]["next"];
+                var currentIndex = index_hash[current];
+                var prevIndex = index_hash[prev];
+                $imageList.eq(currentIndex - 1)[0].classList.add("current");
+                $imageList.eq(prevIndex - 1)[0].classList.remove("current");
+                }
+            );
+            //上一张图片
+            $prevImage.on("click",function(){
+                var now_ =  $homeSlide[0].dataset.current;
+                var next_ = image_hash[now_]["next"];
+                $homeSlide[0].dataset.current = next_;
+                $homeImage.each((index,item) =>{
+                    var current = item.dataset.current;
+                    var prev = image_hash[current]["prev"];
+                    item.classList.replace(current,prev);
+                    item.dataset.current = prev;
+                });
+                var current = $homeSlide[0].dataset.current;
+                var next = image_hash[current]["prev"];
+                var currentIndex = index_hash[current];
+                var nextIndex = index_hash[next];
+                $imageList.eq(currentIndex - 1)[0].classList.add("current");
+                $imageList.eq(nextIndex - 1)[0].classList.remove("current");
+                }
+            );
+            $homeSlide.on("mouseleave",function(){
+                window.timer = setInterval(function () {
+                    $nextImage.trigger("click");
+                },3000);
+            }).on("mouseover",function(){
+                if(window.timer){
+                    clearInterval(window.timer);
+                }
+            });
+            $homeSlide.trigger("mouseleave");
+            $imageList.on("click",function(){
+                var target =  $(this).index() + 1;
+                var current = index_hash[$homeSlide[0].dataset.current];
+                var step = target - current;
+                console.log(step);
+                while(step > 0){
+                    step --;
+                    $nextImage.trigger("click");
+                }
+                while(step < 0){
+                    step ++;
+                    $prevImage.trigger("click");
+                }
+            })
+            $button.on("click", function(){
+                alert("Oppps,some problem has occoured, please ignore the login and register module");
+                return false;
+            })
+
+            // Lecture 内容的展示
+            // 使用对象来保存内容
+            var LectureHash = function(relative_position, target){
+                this.relative_position = relative_position;
+                this.target = target;
+                // 传入 target 进行更新
+                this.update_position = function(new_target){
+                        this.target = new_target;
+                        step = this.target - this.relative_position;
+                        this.offset = Math.abs(this.step * height);
+                        this.direction = null;
+                        if (this.offset > 0) {
+                            this.direction = "up";
+                        }
+                        if (this.offset < 0) {
+                            this.direction = "down";
+                        }
+                    }
+                };
+            //使用 hash 表来保存位置的偏移
+            var lecture_hash = {
+                week_1: new LectureHash(0,0),
+                week_2: new LectureHash(0,0),
+                week_3: new LectureHash(0,0),
+                week_4: new LectureHash(0,0),
+                week_5: new LectureHash(0,0),
+                week_6: new LectureHash(0,0),
+                week_7: new LectureHash(0,0),
+                week_8: new LectureHash(0,0),
+            };
+            container = lecture_hash;
+            $contentTitle.on("click",function(){
+                var $this = $(this);
+                var index = $this.index();
+                height = 82;
+                var upOffset = index * height;
+                console.log(height);
+                var downOffset = (7 - index) * height;
+                var $detailContent = $this.find(".detail-content");
+                $detailContent[0].classList.remove("hidden");
+                $detailContent.css({
+                    opacity:1.0,
+                    transition:"all 1s linear 0s"
+                });
+                $this.css({
+                    transform: "translateY(-" + upOffset + "px)",
+                    transition: "transform 1s linear 0s"
+                });
+                for(var i = index - 1; i >= 0; i--){
+                    $contentTitle.eq(i).css({
+                        transform: "translateY(-" + upOffset + "px) scale(0.0)",
+                        opacity: 0,
+                        transition: "transform 1s linear 0s,opacity 1s linear 0s"
+                    })
+                }
+                for(var i = index + 1; i <= 7; i++){
+                    $contentTitle.eq(i).css({
+                        transform: "translateY(" + downOffset + "px) scale(0.0)",
+                        opacity: 0,
+                        transition: "transform 1s linear 0s,opacity 1s linear 0s"
+                    })
+                }
+            })
+        });
+    </script>
+>>>>>>> d8abeabfee4e0c5688f84ad2372f3834f5de1d69
+</body>
+</html>

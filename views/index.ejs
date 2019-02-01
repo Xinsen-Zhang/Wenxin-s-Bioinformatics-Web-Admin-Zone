@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wenxin's Bioinformatics Website</title>
+    <script src="/jquery/jquery.min.js"></script>
+</head>
+<body>
+    <video src="video/dna.mp4" class="hello-video" id="video" controls autoplay="autoplay" muted style="position: fixed; z-index: 10000;"></video>
+    <script>
+        $("body").css("backgroundColor","#000");
+        $("#video").width($(window).width());
+        $("#video").height($(window).height());
+        setTimeout(function(){
+            alert("The video is muted,default. Please turn on the volume manually.");
+        },1000);
+        setInterval(function(){
+          if($("video")[0].ended){
+              window.open("/home","_self")
+          }
+        },100);
+    </script>
+</body>
+</html>

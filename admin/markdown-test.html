@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="assets/vendor/simplemde/simplemde.css">
+	<script src="assets/vendor/simplemde/simplemde.js"></script>
+	<style>
+		.CodeMirror{
+			/* background-color: rgb(29,32,55); */
+			color: #000;
+		}
+		.editor-preview-side{
+			background-color: rgb(29,32,55);
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<textarea name="markdown" id="markdown" cols="30" rows="10"></textarea>
+	<script>
+		
+		var simplemde = new SimpleMDE({
+		    spellChecker: false,
+		    autofocus: true,
+		    autoDownloadFontAwesome: true,
+		    placeholder: "Type here...",
+		    autosave: {
+		        enabled: true,
+		        uniqueId: "demo",
+		        delay: 1000,
+		    },
+		    tabSize: 4,
+		    status: false,
+		    lineWrapping: false,
+		    renderingConfig: {
+		        codeSyntaxHighlighting: true
+		    },
+
+		});
+
+		// simplemde.toggleSideBySide()//打开实时全屏预览
+
+	</script>
+</body>
+</html>

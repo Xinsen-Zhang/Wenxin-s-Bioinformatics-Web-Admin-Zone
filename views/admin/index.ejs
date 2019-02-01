@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="assets/static/css/media-query.css">
+	<link rel="stylesheet" href="assets/static/css/admin-index.css">
+	<link rel="stylesheet" href="assets/vendor/animate/animate.css">
+	<link rel="stylesheet" href="assets/static/css/normalize.css">
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<title>Admin Dashboard</title>
+</head>
+<body>
+	<script>
+		<%if(locals.uploadMessage){%>
+			alert("<%= uploadMessage%>");
+		<%}%>
+	</script>
+	<div class="left">
+		<div class="avatar">
+			<img src="assets/static/avatar/avatar.gif" alt="">
+		</div>
+		<div class="message"></div>
+		<div class="menu-control">
+			<div class="dashboard">Dashboard</div>
+			<ul class="menu">Home</ul>
+			<ul class="menu" data-field="Lecture">Lecture</ul>
+			<ul class="menu" data-field="Analysis">Analysis</ul>
+		</div>
+	</div>
+	<div class="top">
+		<form action="/admin/login" method="get" class="form">
+			<input type="text" value="true" name="logout">
+			<input type="submit" value="" class="logout">
+		</form>
+		<div class="button">Log out</div>
+		<!-- <div class="search"></div> -->
+		<form action="/admin/imageUpload" method="post" class="image-form" style="cursor: pointer" enctype="multipart/form-data">
+			<div class="mask-choose">Select a file</div>
+			<input type="file" name="image" id="image" multiple/>
+			<div class="mask-text">No file is selected</div>
+			<button type="submit" style="cursor: pointer">Upload</button>
+			<div class="image-list">
+				<ul>
+					<% if(locals.files) %>
+					<%{ files.forEach((element)=>{%>
+						<li class="image-item">
+							<a href="http://23.106.135.251/admin/assets/uploads/<%= element%>"><%= element%></a>
+						</li>
+						<% })%>
+					<%} %>
+				</ul>
+			</div>
+			<div class="image-show"><img src="" alt="image-show"></div>
+
+		</form>
+		<div class="title-list-container">
+			<div class="title-list">
+				<ul class="tabel-content">
+
+				</ul>
+			</div>
+		</div>
+
+		
+
+	</div>
+	<script src="assets/static/js/admin-index.js"></script>
+</body>
+</html>
